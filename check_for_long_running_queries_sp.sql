@@ -22,7 +22,6 @@ var end_time_range_start_number = String(END_TIME_RANGE_START_NUMBER);
 var threshold                   = String(THRESHOLD);
 var sns_args                    = JSON.parse(SNS_ARGS);
 
-
 // stmt to be executed
 
 var stmt    = "SELECT ARRAY_AGG(OBJECT_CONSTRUCT('-> QUERY_ID', QUERY_ID,"
