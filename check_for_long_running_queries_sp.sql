@@ -65,7 +65,7 @@ try {
 					  + "'" + mail_subject    + "',"
 					  + "'" + custom_message  +"',"
 					  + "\$\$" + message + "\$\$"
-				      + ");";
+				       + ");";
         
         stmt_send_sns_exec = snowflake.createStatement({sqlText: stmt_send_sns});
         stmt_send_sns_exec.execute();
