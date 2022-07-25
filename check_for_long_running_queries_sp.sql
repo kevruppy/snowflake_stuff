@@ -7,7 +7,7 @@ AS
 CALL CHECK_FOR_LONG_RUNNING_QUERIES(
 '48',
 '1000',
-'{"sns_topic": "arn:aws:sns:eu-central-1:725608425951:SnowflakeMail", "mail_subject":"AT LEAST ONE LONG RUNNING QUERY DETECTED"}',
+'{"sns_topic": "arn:aws:sns:eu-central-1:725600015951:SnowflakeMail", "mail_subject":"AT LEAST ONE LONG RUNNING QUERY DETECTED"}',
 );
 */
 $$
@@ -57,19 +57,17 @@ try {
         custom_message  = "At least one long running query deteced: "
         message         = JSON.stringify(result, null, 2);
 		
-		// this is using an external udf!
+	// this is using an external udf!
 		
-        stmt_send_sns = "SELECT SEND_LOG_SNS("
-					  + "'" + sns_topic       + "',"
-					  + "'" + mail_subject    + "',"
-					  + "'" + custom_message  +"',"
-					  + "\$\$" + message + "\$\$"
-				       + ");";
+        stmt_send_sns 	= "SELECT SEND_LOG_SNS("
+			+ "'" + sns_topic       + "',"
+			+ "'" + mail_subject    + "',"
+			+ "'" + custom_message  + "',"
+			+ "\$\$" + message + "\$\$"
+			+ ");";
         
         stmt_send_sns_exec = snowflake.createStatement({sqlText: stmt_send_sns});
         stmt_send_sns_exec.execute();
-        
-        //
         
         return result
    
