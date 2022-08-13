@@ -1,5 +1,7 @@
 from snowflake.snowpark import Session
 
+connection_parameters = {"account":"?", "user":"?", "password":"?", "role":"?", "warehouse":"?", "database":"?", "schema":"?"}
+
 def compare_objects(obj1:str, obj2:str) -> str:
     
     """
