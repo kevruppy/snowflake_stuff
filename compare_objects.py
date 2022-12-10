@@ -1,3 +1,6 @@
+-- BE AWARE OF NAME OVERLOADING WHEN IT COMES TO REGULAR AND TEMP TABLES
+-- THIS WILL LEAD TO MISTAKES IF TEMP TBL HAS THE SAME NAME AS REGULAR TABLE
+
 from snowflake.snowpark import Session
 
 connection_parameters = {"account":"?", "user":"?", "password":"?", "role":"?", "warehouse":"?", "database":"?", "schema":"?"}
